@@ -43,7 +43,9 @@ class _LoginScreenState extends State<LoginScreen> {
                 margin: EdgeInsets.only(top: 35),
                 alignment: Alignment.center,
                 child: ElevatedButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    Navigator.pushNamed(context, 'Home');
+                  },
                   child: Text(
                     'Continue',
                     style: TextStyle(color: Colors.white, fontSize: 25.0),
