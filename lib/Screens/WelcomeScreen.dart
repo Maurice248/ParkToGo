@@ -1,6 +1,9 @@
 // ignore_for_file: file_names, use_key_in_widget_constructors, prefer_const_constructors
 
+// import 'package:path/path.dart';
 import 'package:flutter/material.dart';
+// import 'package:parking_app/Screens/HomeScreen.dart';
+// import 'package:parking_app/Screens/LoginScreen.dart';
 
 class WelcomeScreen extends StatelessWidget {
   @override
@@ -29,7 +32,9 @@ class WelcomeScreen extends StatelessWidget {
                     alignment: Alignment.topRight,
                     margin: EdgeInsets.only(right: 8.0),
                     child: TextButton(
-                        onPressed: () {},
+                        onPressed: () {
+                          Navigator.pushNamed(context, 'Login');
+                        },
                         child: const Text(
                           'Log In',
                           style: TextStyle(fontSize: 18.0, color: Colors.white),
@@ -63,7 +68,9 @@ class WelcomeScreen extends StatelessWidget {
               ),
             ),
             ElevatedButton(
-              onPressed: () {},
+              onPressed: () {
+                Navigator.pushNamed(context, 'Register');
+              },
               child: const Text(
                 'Create Account',
                 style: TextStyle(fontSize: 25.0),

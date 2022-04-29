@@ -6,6 +6,8 @@ import 'package:parking_app/Screens/UI/CustomInputField.dart';
 import 'package:parking_app/Screens/UI/CustomPasswordField.dart';
 
 class RegisterScreen extends StatefulWidget {
+  static var routeName = "Register";
+
   @override
   State<RegisterScreen> createState() => _RegisterScreenState();
 }

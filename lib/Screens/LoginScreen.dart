@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:parking_app/Screens/UI/CustomHead.dart';
 import './UI/CustomPasswordField.dart';
 import './UI/CustomInputField.dart';
+import 'HomeScreen.dart';
 
 class LoginScreen extends StatefulWidget {
   static var routeName = "Login";
@@ -13,6 +14,8 @@ class LoginScreen extends StatefulWidget {
 }
 
 class _LoginScreenState extends State<LoginScreen> {
+  GlobalKey<FormState> formkey = GlobalKey<FormState>();
+  bool obscureText = true;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -30,7 +33,9 @@ class _LoginScreenState extends State<LoginScreen> {
                   alignment: Alignment.topLeft,
                   margin: EdgeInsets.only(left: 18),
                   child: TextButton(
-                    onPressed: () {},
+                    onPressed: () {
+                      Navigator.pushNamed(context, 'Home');
+                    },
                     child: Text(
                       'Forgot Password?',
                       style: TextStyle(color: Colors.grey, fontSize: 16.0),
@@ -70,5 +75,20 @@ class _LoginScreenState extends State<LoginScreen> {
         ),
       ),
     );
+  }
+
+  void login() {
+    if (formkey.currentState!.validate()) {
+      print("invalid");
+    } else {
+      print("valid input");
+      Navigator.pushReplacementNamed(context, Home.routeName);
+    }
+  }
+
+  void setPasswordVisibility() {
+    setState(() {
+      obscureText = !obscureText;
+    });
   }
 }
