@@ -12,10 +12,9 @@ class _ParkResScreenState extends State<ParkResScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
         backgroundColor: Colors.white,
-        body: SingleChildScrollView(
-            child: AppBar(
-          backgroundColor: Colors.black,
-          //const Icon(Icons.local_parking_outlined, color: Colors.white)
-        )));
+        appBar: AppBar(
+          backgroundColor: Colors.black
+        ),
+    );
   }
 }
