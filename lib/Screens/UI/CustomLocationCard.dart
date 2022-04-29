@@ -7,7 +7,7 @@ class CustomLocationCard extends StatelessWidget {
   final String place;
   final String img;
 
-  CustomLocationCard(
+  const CustomLocationCard(
       {required this.place, required this.count, required this.img});
 
   @override
@@ -21,9 +21,22 @@ class CustomLocationCard extends StatelessWidget {
               children: <Widget>[
                 // ignore: sized_box_for_whitespace
                 Container(
-                  // padding: EdgeInsets.fromLTRB(10, 10, 10, 0),
-                  height: 400,
-                  width: MediaQuery.of(context).size.width * 0.9,
+                  padding: EdgeInsets.only(top: 10),
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.only(
+                      bottomLeft: Radius.circular(10),
+                      bottomRight: Radius.circular(10),
+                    ),
+                    boxShadow: [
+                      BoxShadow(
+                        offset: Offset(0, 10),
+                        blurRadius: 50,
+                        color: Colors.black.withOpacity(0.23),
+                      ),
+                    ],
+                  ),
+                  height: 350,
+                  width: MediaQuery.of(context).size.width * 0.95,
                   child: Card(
                     child: InkWell(
                       splashColor: Colors.blue.withAlpha(30),
@@ -32,17 +45,16 @@ class CustomLocationCard extends StatelessWidget {
                       },
                       child: Column(children: <Widget>[
                         Container(
-                          height: 300,
-                          decoration: const BoxDecoration(
+                          height: 230,
+                          decoration: BoxDecoration(
                             image: DecorationImage(
-                                image: AssetImage("img/cebu-port.jpeg"),
-                                fit: BoxFit.fill),
+                                image: AssetImage(img), fit: BoxFit.fill),
                           ),
                         ),
-                        const ListTile(
+                        ListTile(
                           leading: Icon(Icons.location_on_outlined),
-                          title: Text("Location"),
-                          subtitle: Text('Available Slots: '),
+                          title: Text(place),
+                          subtitle: Text('Available Slots: $count'),
                         ),
                       ]),
                     ),

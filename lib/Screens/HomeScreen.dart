@@ -60,7 +60,7 @@ class _HomeState extends State<Home> {
       ),
       body: CustomLocationCard(
         count: 9,
-        place: "port",
+        place: "Cebu port",
         img: 'img/cebu-port.jpeg',
       ),
     );
