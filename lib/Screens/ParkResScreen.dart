@@ -8,6 +8,14 @@ class ParkResScreen extends StatefulWidget {
 class _ParkResScreenState extends State<ParkResScreen> {
   @override
   Widget build(BuildContext context) {
-    return Container();
+    return Scaffold(
+      backgroundColor: Colors.white,
+      body: SingleChildScrollView(
+        child: AppBar(
+          backgroundColor: Colors.black,
+          //const Icon(Icons.local_parking_outlined, color: Colors.white)
+        )
+      )
+    );
   }
 }
