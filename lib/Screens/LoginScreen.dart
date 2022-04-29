@@ -6,6 +6,8 @@ import './UI/CustomPasswordField.dart';
 import './UI/CustomInputField.dart';
 
 class LoginScreen extends StatefulWidget {
+  static var routeName = "Login";
+
   @override
   State<LoginScreen> createState() => _LoginScreenState();
 }
