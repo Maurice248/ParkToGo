@@ -63,6 +63,7 @@ flutter:
     - img/Logo.png
     - img/ark.png
     - img/cebu-port.jpeg
+    - img/temp_pic_parkRes.png
   # assets:
   #   - images/a_dot_burr.jpeg
   #   - images/a_dot_ham.jpeg
