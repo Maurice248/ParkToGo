@@ -15,6 +15,20 @@ class _ParkResScreenState extends State<ParkResScreen> {
         appBar: AppBar(
           backgroundColor: Colors.black
         ),
+        body: Center(
+          child: Column(
+            children: <Widget>[
+            //mainAxisAlignment: MainAxisAlignment.center,
+              const Image(
+                image: AssetImage('img/temp_pic_parkRes.png'),
+              ),
+              ElevatedButton(
+                onPressed: () {},
+                child: const Text('Reserve'),
+              ),
+            ]
+          )
+        )
     );
   }
 }
