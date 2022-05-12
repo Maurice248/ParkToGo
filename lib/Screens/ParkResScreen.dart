@@ -1,5 +1,6 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
+import 'package:flutter_beep/flutter_beep.dart';
 
 class ParkResScreen extends StatefulWidget {
   static var routeName = "ParkResScreen";
@@ -12,18 +13,32 @@ class ParkResScreen extends StatefulWidget {
 class _ParkResScreenState extends State<ParkResScreen> {
   static int maxSeconds = 60;
   static const maxMinutes = 5;
-  int seconds = 0;
+  int timeActual = 300;
+  int tens = 0;
+  int ones = 0;
   int minutes = maxMinutes;
   Timer? timer; 
 
   void startTimer() {
     timer = Timer.periodic(const Duration(milliseconds: 1), (_){
-      if (minutes > 0) {
-        if (seconds <= 0 && minutes >= 0) {
+      if (timeActual > 0) {
+        timeActual--;
+        print(timeActual);
+        if (tens <= 0 && ones <= 0) {
           setState(() => minutes--);
-          setState(() => seconds = maxSeconds);
-        }
-        setState(() => seconds--);
+          setState(() => tens = 5);
+          setState(() => ones = 9);
+        }else{
+            setState(() => ones--);
+            if (ones < 0){
+              setState(() => ones = 9);
+              setState(() => tens--);
+              //setState(() => tens--);
+            }
+          }
+      } else { 
+        timer?.cancel();
+        FlutterBeep.beep();
       }
     });
     
@@ -62,7 +77,7 @@ class _ParkResScreenState extends State<ParkResScreen> {
 
   Widget buildTime(){
     return Text(
-      '$minutes:$seconds',
+      '$minutes:$tens$ones',
       style: TextStyle(
         fontWeight: FontWeight.bold,
         fontSize: 80,
