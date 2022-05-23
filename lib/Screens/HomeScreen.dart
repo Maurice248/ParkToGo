@@ -2,6 +2,8 @@
 import 'package:flutter/material.dart';
 import 'package:parking_app/Screens/UI/CustomLocationCard.dart';
 
+import 'ParkResScreen.dart';
+
 class Home extends StatefulWidget {
   static const String routeName = "Home";
 
