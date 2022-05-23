@@ -20,7 +20,7 @@ class _ParkResScreenState extends State<ParkResScreen> {
   Timer? timer; 
 
   void startTimer() {
-    timer = Timer.periodic(const Duration(milliseconds: 1), (_){
+    timer = Timer.periodic(const Duration(seconds: 1), (_){
       if (timeActual > 0) {
         timeActual--;
         print(timeActual);
