@@ -4,6 +4,8 @@ import 'package:parking_app/Screens/UI/AdminCustomCard.dart';
 import 'package:parking_app/Screens/UI/CardForm.dart';
 import 'package:parking_app/Screens/UI/CustomLocationCard.dart';
 
+import 'UI/CategorySelector.dart';
+
 class AdminHome extends StatefulWidget {
   static var routeName = "AdminHome";
 
@@ -19,7 +21,7 @@ class _AdminHomeState extends State<AdminHome> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.black,
+      backgroundColor: Color.fromARGB(255, 224, 224, 224),
       appBar: AppBar(
         backgroundColor: Colors.black,
         title: customSearchBar,
@@ -64,16 +66,17 @@ class _AdminHomeState extends State<AdminHome> {
       ),
       body: Column(
         children: <Widget>[
+          CategorySelector(),
           Expanded(
             child: Container(
               // ignore: prefer_const_constructors
-              decoration: BoxDecoration(
-                color: Color.fromARGB(255, 239, 239, 239),
-                borderRadius: BorderRadius.only(
-                  topLeft: Radius.circular(30.0),
-                  topRight: Radius.circular(30.0),
-                ),
-              ),
+              // decoration: BoxDecoration(
+              //   color: Color.fromARGB(255, 239, 239, 239),
+              //   borderRadius: BorderRadius.only(
+              //     topLeft: Radius.circular(30.0),
+              //     topRight: Radius.circular(30.0),
+              //   ),
+              // ),
               child: SingleChildScrollView(
                   child: Row(
                 mainAxisAlignment: MainAxisAlignment.center,

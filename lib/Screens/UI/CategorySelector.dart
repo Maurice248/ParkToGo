@@ -1,6 +1,9 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
+import 'package:parking_app/Screens/AdminHomeScreen.dart';
+import 'package:parking_app/Screens/AdminOtp.dart';
+
 class CategorySelector extends StatefulWidget {
   const CategorySelector({Key? key}) : super(key: key);
 
@@ -13,34 +16,34 @@ class _CategorySelectorState extends State<CategorySelector> {
   final List<String> catergories = ['dashboard', 'records', 'OTP'];
   @override
   Widget build(BuildContext context) {
-    return Container(
-      height: 90.0,
-      color: Colors.black,
-      child: ListView.builder(
-        scrollDirection: Axis.horizontal,
-        itemCount: catergories.length,
-        itemBuilder: (BuildContext context, int index) {
-          // Center()
-          return GestureDetector(
-            onTap: () {
-              setState(() {
-                selectedIndex = index;
-              });
-            },
-            child: Padding(
-              padding: EdgeInsets.symmetric(horizontal: 35.0, vertical: 30.0),
-              child: Text(
-                catergories[index],
-                style: TextStyle(
-                  color: index == selectedIndex ? Colors.white : Colors.white60,
-                  fontSize: 20.0,
-                  fontWeight: FontWeight.bold,
-                  letterSpacing: 1.2,
-                ),
-              ),
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 30.0),
+      child: Column(
+        children: <Widget>[
+          SizedBox(height: 20.0),
+          ExpansionTile(
+            title: Text(
+              "Page",
+              style: TextStyle(fontSize: 18.0, fontWeight: FontWeight.bold),
             ),
-          );
-        },
+            children: <Widget>[
+              ListTile(
+                title: Text('Dashbaoard'),
+                onTap: () {
+                  Navigator.pushReplacementNamed(context, AdminHome.routeName);
+                  debugPrint('Card tapped.');
+                },
+              ),
+              ListTile(
+                title: Text('OTP form'),
+                onTap: () {
+                  Navigator.pushReplacementNamed(context, AdminOtp.routeName);
+                  debugPrint('Card tapped.');
+                },
+              ),
+            ],
+          ),
+        ],
       ),
     );
   }

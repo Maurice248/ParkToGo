@@ -4,7 +4,6 @@ import 'package:flutter_beep/flutter_beep.dart';
 
 class ParkResScreen extends StatefulWidget {
   static var routeName = "ParkResScreen";
-  
 
   @override
   State<ParkResScreen> createState() => _ParkResScreenState();
@@ -17,10 +16,10 @@ class _ParkResScreenState extends State<ParkResScreen> {
   int tens = 0;
   int ones = 0;
   int minutes = maxMinutes;
-  Timer? timer; 
+  Timer? timer;
 
   void startTimer() {
-    timer = Timer.periodic(const Duration(seconds: 1), (_){
+    timer = Timer.periodic(const Duration(seconds: 1), (_) {
       if (timeActual > 0) {
         timeActual--;
         print(timeActual);
@@ -28,60 +27,51 @@ class _ParkResScreenState extends State<ParkResScreen> {
           setState(() => minutes--);
           setState(() => tens = 5);
           setState(() => ones = 9);
-        }else{
-            setState(() => ones--);
-            if (ones < 0){
-              setState(() => ones = 9);
-              setState(() => tens--);
-              //setState(() => tens--);
-            }
+        } else {
+          setState(() => ones--);
+          if (ones < 0) {
+            setState(() => ones = 9);
+            setState(() => tens--);
+            //setState(() => tens--);
           }
-      } else { 
+        }
+      } else {
         timer?.cancel();
         FlutterBeep.beep();
       }
     });
-    
   }
 
-  void stopTimer(){
+  void stopTimer() {
     timer?.cancel();
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        backgroundColor: Colors.white,
-        appBar: AppBar(
-          backgroundColor: Colors.black
-        ),
+        backgroundColor: Color.fromARGB(255, 224, 224, 224),
+        appBar: AppBar(backgroundColor: Colors.black),
         body: Center(
-          child: Column(
-            children: <Widget>[
-            //mainAxisAlignment: MainAxisAlignment.center,
-              const Image(
-                image: AssetImage('img/temp_pic_parkRes.png'),
-              ),
-              buildTime(),
-              ElevatedButton(
-                onPressed: () {
-                  startTimer();
-                },
-                child: const Text('Reserve'),
-              ),
-            ]
-          )
-        )
-    );
+            child: Column(children: <Widget>[
+          //mainAxisAlignment: MainAxisAlignment.center,
+          const Image(
+            image: AssetImage('img/temp_pic_parkRes.png'),
+          ),
+          buildTime(),
+          ElevatedButton(
+            onPressed: () {
+              startTimer();
+            },
+            child: const Text('Reserve'),
+          ),
+        ])));
   }
 
-  Widget buildTime(){
-    return Text(
-      '$minutes:$tens$ones',
-      style: TextStyle(
-        fontWeight: FontWeight.bold,
-        fontSize: 80,
-      )
-    );
+  Widget buildTime() {
+    return Text('$minutes:$tens$ones',
+        style: TextStyle(
+          fontWeight: FontWeight.bold,
+          fontSize: 80,
+        ));
   }
 }

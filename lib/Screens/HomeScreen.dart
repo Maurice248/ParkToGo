@@ -18,7 +18,7 @@ class _HomeState extends State<Home> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.black,
+      backgroundColor: Color.fromARGB(255, 224, 224, 224),
       appBar: AppBar(
         backgroundColor: Colors.black,
         title: customSearchBar,
@@ -66,13 +66,13 @@ class _HomeState extends State<Home> {
           Expanded(
             child: Container(
               // ignore: prefer_const_constructors
-              decoration: BoxDecoration(
-                color: Color.fromARGB(255, 239, 239, 239),
-                borderRadius: BorderRadius.only(
-                  topLeft: Radius.circular(30.0),
-                  topRight: Radius.circular(30.0),
-                ),
-              ),
+              // decoration: BoxDecoration(
+              //   color: Color.fromARGB(255, 239, 239, 239),
+              //   borderRadius: BorderRadius.only(
+              //     topLeft: Radius.circular(30.0),
+              //     topRight: Radius.circular(30.0),
+              //   ),
+              // ),
               child: SingleChildScrollView(
                   child: Row(
                 mainAxisAlignment: MainAxisAlignment.center,
