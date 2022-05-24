@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 
 import 'package:parking_app/Screens/AdminHomeScreen.dart';
 import 'package:parking_app/Screens/AdminOtp.dart';
+import 'package:parking_app/Screens/Records.dart';
 
 class CategorySelector extends StatefulWidget {
   const CategorySelector({Key? key}) : super(key: key);
@@ -38,6 +39,13 @@ class _CategorySelectorState extends State<CategorySelector> {
                 title: Text('OTP form'),
                 onTap: () {
                   Navigator.pushReplacementNamed(context, AdminOtp.routeName);
+                  debugPrint('Card tapped.');
+                },
+              ),
+              ListTile(
+                title: Text('Records'),
+                onTap: () {
+                  Navigator.pushReplacementNamed(context, Records.routeName);
                   debugPrint('Card tapped.');
                 },
               ),

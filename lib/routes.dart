@@ -5,6 +5,7 @@ import 'package:parking_app/Screens/ParkResScreen.dart';
 import 'package:parking_app/Screens/RegisterScreen.dart';
 import 'package:parking_app/Screens/AdminHomeScreen.dart';
 import 'package:parking_app/Screens/AdminOtp.dart';
+import 'package:parking_app/Screens/Records.dart';
 
 final Map<String, WidgetBuilder> routes = {
   // ignore: prefer_const_constructors
@@ -14,4 +15,5 @@ final Map<String, WidgetBuilder> routes = {
   RegisterScreen.routeName: (BuildContext context) => RegisterScreen(),
   AdminHome.routeName: (BuildContext context) => AdminHome(),
   AdminOtp.routeName: (BuildContext context) => AdminOtp(),
+  Records.routeName: (BuildContext context) => Records(),
 };
