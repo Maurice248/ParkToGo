@@ -15,14 +15,19 @@ class CardForm extends StatelessWidget {
                 title: const Text(
                   'Add new parking lot',
                 ),
-                content: CustomInputField(
-                    "Location",
-                    Icon(
-                      Icons.location_on_outlined,
-                      color: Colors.white,
-                      size: 28,
-                    ),
-                    2.2),
+                content: Column(children: <Widget>[
+                  TextFormField(
+                    decoration: const InputDecoration(
+
+                        // icon: const Icon(Icons.calendar_today),
+                        hintText: 'Enter Location',
+                        hintStyle: TextStyle(
+                            color: Color.fromARGB(255, 175, 173, 173)),
+                        labelText: 'Enter Location',
+                        labelStyle: TextStyle(
+                            color: Color.fromARGB(255, 175, 173, 173))),
+                  )
+                ]),
                 actions: <Widget>[
                   TextButton(
                     onPressed: () => Navigator.pop(context, 'Cancel'),
