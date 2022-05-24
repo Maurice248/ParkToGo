@@ -1,5 +1,8 @@
+import 'dart:html';
+import 'package:file_picker/file_picker.dart';
 import 'package:flutter/material.dart';
 import 'package:parking_app/Screens/UI/CustomInputField.dart';
+import 'package:path_provider/path_provider.dart';
 
 class CardForm extends StatelessWidget {
   const CardForm({Key? key}) : super(key: key);
@@ -15,30 +18,64 @@ class CardForm extends StatelessWidget {
                 title: const Text(
                   'Add new parking lot',
                 ),
-                content: Column(children: <Widget>[
-                  TextFormField(
-                    decoration: const InputDecoration(
+                titleTextStyle: const TextStyle(
+                  color: Color.fromARGB(255, 211, 210, 210),
+                ),
+                content: Container(
+                  width: 300.0,
+                  height: 230.0,
+                  child: Column(children: <Widget>[
+                    ElevatedButton(
+                        onPressed: () async {
+                          // final result = await FilePicker.platform.pickFiles();
+                          // if (result == null) return;
 
-                        // icon: const Icon(Icons.calendar_today),
-                        hintText: 'Enter Location',
+                          // final file = result.files.first;
+
+                          // await saveFile(file);
+                        },
+                        child: Text("upload file")),
+                    TextFormField(
+                      decoration: const InputDecoration(
+                          hintText: 'Enter Location',
+                          hintStyle: TextStyle(
+                              color: Color.fromARGB(255, 175, 173, 173)),
+                          labelText: 'Enter Location',
+                          labelStyle: TextStyle(
+                              color: Color.fromARGB(255, 175, 173, 173))),
+                    ),
+                    TextFormField(
+                      decoration: const InputDecoration(
+                        hintText: 'Amount of space',
                         hintStyle: TextStyle(
                             color: Color.fromARGB(255, 175, 173, 173)),
-                        labelText: 'Enter Location',
+                        labelText: 'Enter the the amount of space',
                         labelStyle: TextStyle(
-                            color: Color.fromARGB(255, 175, 173, 173))),
-                  )
-                ]),
+                            color: Color.fromARGB(255, 175, 173, 173)),
+                      ),
+                      keyboardType: TextInputType.number,
+                    ),
+                  ]),
+                ),
                 actions: <Widget>[
                   TextButton(
                     onPressed: () => Navigator.pop(context, 'Cancel'),
                     child: const Text('Cancel'),
                   ),
                   TextButton(
-                    onPressed: () => Navigator.pop(context, 'OK'),
-                    child: const Text('OK'),
+                    onPressed: () => Navigator.pop(context, 'Save'),
+                    child: const Text('Save'),
                   ),
                 ],
               ),
             ));
   }
+
+//  Future<File> saveFile(PlatformFile file) async{
+//    final appStorage = await getApplicationDocumentsDirectory();
+//    final newFile = File('${appStorage.path}'/'${file.name}');
+
+//    return File(file.path!).copy(newFile.path);
+//  }
+
 }
