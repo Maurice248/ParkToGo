@@ -1,22 +1,16 @@
-// ignore_for_file: prefer_const_constructors, use_key_in_widget_constructors
 import 'package:flutter/material.dart';
-
 import '../ParkResScreen.dart';
 
-// ignore: must_be_immutable
-class CustomLocationCard extends StatelessWidget {
+class AdminCard extends StatelessWidget {
   int count;
   String place;
   String img;
 
-  CustomLocationCard(
-      {required this.place, required this.count, required this.img});
+  AdminCard({required this.place, required this.count, required this.img});
 
   @override
   Widget build(BuildContext context) {
-    return
-        // ignore: sized_box_for_whitespace
-        Container(
+    return Container(
       padding: EdgeInsets.only(top: 10),
       decoration: BoxDecoration(
         borderRadius: BorderRadius.only(
@@ -52,6 +46,12 @@ class CustomLocationCard extends StatelessWidget {
               leading: Icon(Icons.location_on_outlined),
               title: Text(place),
               subtitle: Text('Available Slots: $count'),
+            ),
+            Row(
+              children: <Widget>[
+                TextButton(onPressed: () {}, child: Text("Edit")),
+                TextButton(onPressed: () {}, child: Text("Delete")),
+              ],
             ),
           ]),
         ),

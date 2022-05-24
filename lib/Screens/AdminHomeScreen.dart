@@ -1,20 +1,21 @@
-// ignore: file_names
 import 'package:flutter/material.dart';
+
+import 'package:parking_app/Screens/UI/AdminCustomCard.dart';
+import 'package:parking_app/Screens/UI/CardForm.dart';
 import 'package:parking_app/Screens/UI/CustomLocationCard.dart';
 
-// import 'ParkResScreen.dart';
+class AdminHome extends StatefulWidget {
+  static var routeName = "AdminHome";
 
-class Home extends StatefulWidget {
-  static const String routeName = "Home";
+  const AdminHome({Key? key}) : super(key: key);
 
-  const Home({Key? key}) : super(key: key);
   @override
-  _HomeState createState() => _HomeState();
+  State<AdminHome> createState() => _AdminHomeState();
 }
 
-class _HomeState extends State<Home> {
+class _AdminHomeState extends State<AdminHome> {
   Icon customIcon = const Icon(Icons.search);
-  Widget customSearchBar = const Text('ParkToGo');
+  Widget customSearchBar = const Text('Admin');
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -52,7 +53,7 @@ class _HomeState extends State<Home> {
                   );
                 } else {
                   customIcon = const Icon(Icons.search);
-                  customSearchBar = const Text('ParkToGo');
+                  customSearchBar = const Text('Admin');
                 }
               });
             },
@@ -79,29 +80,25 @@ class _HomeState extends State<Home> {
                 children: <Widget>[
                   Column(
                     children: <Widget>[
-                      CustomLocationCard(
+                      AdminCard(
                         count: 9,
                         place: "Cebu port",
                         img: 'img/cebu-port.jpeg',
                       ),
-                      CustomLocationCard(
-                        count: 9,
-                        place: "Cebu port",
-                        img: 'img/cebu-port.jpeg',
-                      ),
-                      CustomLocationCard(
+                      AdminCard(
                         count: 9,
                         place: "Cebu port",
                         img: 'img/cebu-port.jpeg',
                       ),
                     ],
-                  )
+                  ),
                 ],
               )),
             ),
           ),
         ],
       ),
+      floatingActionButton: CardForm(),
     );
   }
 }
